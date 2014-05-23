@@ -1,3 +1,4 @@
+
 #-------------------------------------------------------------------------------
 # Name:        lyrics-downloader2.0
 # Purpose: creates a text file of the lyrics of a song
@@ -19,10 +20,15 @@ path= sys.argv[1]
 audiofile = eyed3.core.load(path)
 artist=str(audiofile.tag.artist).lower()
 s=str(audiofile.tag.title).lower()
+album=str(audiofile.tag.album).lower()
 path = path.replace('.mp3',"")
 s =s.replace(" ","")
 artist= artist.replace(" ","")
-url='http://www.azlyrics.com/lyrics/'+artist+'/'+ s+'.html'
+album=artist.replace(" ","")
+if 'http://www.azlyrics.com/lyrics/'+artist+'/'+ s+'.html':
+    url='http://www.azlyrics.com/lyrics/'+artist+'/'+ s+'.html'
+else if:'http://www.azlyrics.com/lyrics/'+artist+'/'+album+'.html'
+    url='http://www.azlyrics.com/lyrics/'+artist+'/'+ album+'.html'
 
 htmltext = urllib.urlopen(url).read()
 soup =BeautifulSoup(htmltext)
@@ -37,4 +43,3 @@ print lyrics
 with open (path+".txt","wb") as l:
     l.write(lyrics)
 l.close()
-
