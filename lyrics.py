@@ -25,10 +25,10 @@ path = path.replace('.mp3',"")
 s =s.replace(" ","")
 artist= artist.replace(" ","")
 album=artist.replace(" ","")
-if 'http://www.azlyrics.com/lyrics/'+artist+'/'+ s+'.html':
+#if 'http://www.azlyrics.com/lyrics/'+artist+'/'+ s+'.html':
     url='http://www.azlyrics.com/lyrics/'+artist+'/'+ s+'.html'
-else if:'http://www.azlyrics.com/lyrics/'+artist+'/'+album+'.html'
-    url='http://www.azlyrics.com/lyrics/'+artist+'/'+ album+'.html'
+#else if:'http://www.azlyrics.com/lyrics/'+artist+'/'+album+'.html'
+    #url='http://www.azlyrics.com/lyrics/'+artist+'/'+ album+'.html'
 
 htmltext = urllib.urlopen(url).read()
 soup =BeautifulSoup(htmltext)
